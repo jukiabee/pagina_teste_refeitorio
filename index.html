@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Refeitório Universitário - Campus Central</title>
+  <meta name="description" content="Página do refeitório universitário com cardápio, horários e contato">
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --card:#ffffff;
+      --accent:#1e88e5;
+      --muted:#6b7280;
+      --success:#16a34a;
+      --glass: rgba(255,255,255,0.6);
+      --radius:14px;
+      --maxw:1100px;
+      color-scheme: light;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 50%);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    .container{
+      max-width:var(--maxw);
+      margin:36px auto;
+      padding:20px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:22px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+    }
+    .logo{
+      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:0 6px 18px rgba(30,136,229,0.16);
+    }
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted);font-size:14px}
+
+    nav{
+      display:flex;gap:12px;align-items:center;
+    }
+    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;display:inline-block}
+    .ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:10px 12px;border-radius:10px}
+
+    main{
+      display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start;
+    }
+
+    /* left column */
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 8px 30px rgba(2,6,23,0.06)}
+    .hero{
+      display:flex;gap:18px;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(30,136,229,0.06), rgba(124,58,237,0.04));
+    }
+    .hero .info{flex:1}
+    .hero h2{margin:0 0 6px 0}
+    .meta{display:flex;gap:12px;color:var(--muted);font-size:13px}
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .menu-list{list-style:none;padding:0;margin:0}
+    .menu-item{display:flex;justify-content:space-between;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent);margin-bottom:8px}
+    .menu-item .title{font-weight:700}
+    .menu-item .desc{display:block;font-size:13px;color:var(--muted)}
+    .price{font-weight:700}
+
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .hours{font-size:14px;color:var(--muted)}
+
+    /* right column */
+    aside .card{position:sticky;top:26px}
+    .contact{display:flex;flex-direction:column;gap:10px}
+    .contact a{color:var(--accent);text-decoration:none;font-weight:600}
+    .badge{display:inline-block;background:var(--glass);padding:6px 8px;border-radius:999px;font-weight:600}
+
+    footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){
+      main{grid-template-columns:1fr 320px}
+    }
+    @media (max-width:820px){
+      header{flex-direction:column;align-items:flex-start}
+      main{grid-template-columns:1fr}
+      aside .card{position:static}
+    }
+
+    /* small utilities */
+    .center{display:flex;align-items:center;gap:10px}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(0,0,0,0.03);display:inline-block}
+
+    /* accessibility: focus outlines */
+    a:focus, button:focus{outline:3px solid rgba(30,136,229,0.18);outline-offset:3px}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">RU</div>
+        <div>
+          <h1>Refeitório - Campus Central</h1>
+          <p class="lead">Comida saudável, preços acessíveis e ambiente acolhedor para estudantes.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#cardapio" class="ghost">Cardápio</a>
+        <a href="#horarios" class="ghost">Horários</a>
+        <a href="#contato" class="btn">Contato / Reserva</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <article class="card hero" aria-labelledby="hero-title">
+          <div class="info">
+            <h2 id="hero-title">Bem-vindos ao Refeitório Universitário</h2>
+            <p class="meta"><span class="tag">Vegetarian friendly</span><span class="tag">Pratos do dia</span><span class="tag">Pagamento: cartão e crédito</span></p>
+            <p style="margin-top:10px;color:var(--muted)">Servimos refeições balanceadas preparadas com ingredientes locais. Nosso objetivo é oferecer opções nutritivas e com bom custo-benefício para a comunidade acadêmica.</p>
+          </div>
+          <div style="width:160px;text-align:center">
+            <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Prato do dia</div>
+            <div style="background:linear-gradient(135deg,var(--accent),#7c3aed);padding:10px;border-radius:10px;color:white;font-weight:700">Feijoada Universitária</div>
+            <div style="margin-top:10px;font-size:13px;color:var(--muted)">R$ 9,50 (meia) • R$ 15,00 (inteira)</div>
+          </div>
+        </article>
+
+        <div class="card" id="cardapio" style="margin-top:16px">
+          <div class="section-title">
+            <strong>Cardápio Semanal</strong>
+            <span class="hours">Atualizado em 14/11/2025</span>
+          </div>
+
+          <div class="grid">
+            <div>
+              <h3 style="margin:0 0 8px 0">Segunda - Sexta</h3>
+              <ul class="menu-list">
+                <li class="menu-item">
+                  <div>
+                    <span class="title">Prato executivo</span>
+                    <span class="desc">Arroz, feijão, proteína do dia e salada</span>
+                  </div>
+                  <div class="price">R$ 12,00</div>
+                </li>
+                <li class="menu-item">
+                  <div><span class="title">Opção vegetariana</span><span class="desc">Quibe de abóbora, arroz integral</span></div>
+                  <div class="price">R$ 10,00</div>
+                </li>
+                <li class="menu-item">
+                  <div><span class="title">Marmita congelada</span><span class="desc">Ideal para levar</span></div>
+                  <div class="price">R$ 11,50</div>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 style="margin:0 0 8px 0">Sobremesas & Bebidas</h3>
+              <ul class="menu-list">
+                <li class="menu-item"><div><span class="title">Fruta da estação</span></div><div class="price">R$ 3,00</div></li>
+                <li class="menu-item"><div><span class="title">Suco natural 300ml</span></div><div class="price">R$ 4,50</div></li>
+                <li class="menu-item"><div><span class="title">Café</span><span class="desc">Liberação gratuita entre 15h-17h</span></div><div class="price">Grátis</div></li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <strong>Observações:</strong>
+            <ul style="margin-top:6px;color:var(--muted)">
+              <li>Descontos especiais para estudantes com carteirinha.</li>
+              <li>Informar alergias ao retirar a bandeja.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="section-title"><strong>Reservas de mesas</strong><span class="tag">Disponibilidade limitada</span></div>
+          <p style="margin:0;color:var(--muted)">Reservas aceitas por e-mail ou telefone (ver contato). Para eventos e almoços coletivos, consulte a gerência com 3 dias de antecedência.</p>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card" id="horarios">
+          <div class="section-title"><strong>Horários</strong><span class="badge">Aberto</span></div>
+          <div class="hours">
+            <div><strong>Seg - Sex:</strong> 07:30 — 20:00</div>
+            <div><strong>Sáb:</strong> 09:00 — 14:00</div>
+            <div><strong>Dom:</strong> Fechado</div>
+          </div>
+
+          <hr style="margin:12px 0;border:none;border-top:1px solid rgba(0,0,0,0.06)">
+
+          <div class="section-title"><strong>Contato</strong></div>
+          <div class="contact">
+            <div><strong>Endereço:</strong><div class="hours">Bloco A — Campus Central</div></div>
+            <div><strong>Telefone:</strong><a href="tel:+551199999999">(11) 99999-9999</a></div>
+            <div><strong>E-mail:</strong><a href="mailto:refeitorio@universidade.edu.br">refeitorio@universidade.edu.br</a></div>
+            <div><strong>Redes:</strong><div class="hours">@refeitorio_central</div></div>
+          </div>
+
+          <hr style="margin:12px 0;border:none;border-top:1px solid rgba(0,0,0,0.06)">
+
+          <div class="section-title"><strong>Formas de pagamento</strong></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <div class="tag">Cartão</div>
+            <div class="tag">Refeição (vales)</div>
+            <div class="tag">PIX</div>
+            <div class="tag">Dinheiro</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <strong>Acessibilidade</strong>
+          <p style="margin:6px 0;color:var(--muted)">Entrada sem degrau, balcão com altura acessível e opções sem glúten mediante solicitação.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+            <span class="tag">Rampas</span>
+            <span class="tag">Banheiro adaptado</span>
+            <span class="tag">Cardápio em braille</span>
+          </div>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      <div>© Universidade — Refeitório do Campus Central • Desenvolvido para fins ilustrativos</div>
+    </footer>
+  </div>
+</body>
+</html>
